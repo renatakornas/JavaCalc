@@ -5,7 +5,6 @@
  */
 package javacalc;
 
-import static java.util.Collections.list;
 import java.util.HashMap;
 
 /**
