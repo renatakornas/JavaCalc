@@ -15,7 +15,7 @@ public class JavaCalc {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        long i = 25; 
+        long i = 50; 
         Fibonacci fib = new Fibonacci(i);
 
         long elementFib = fib.calcFibonacci(i);
