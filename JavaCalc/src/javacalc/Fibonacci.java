@@ -37,35 +37,33 @@ public class Fibonacci {
 
     public long calcFibonacci(int seriesElement) {
         long el;
-        fibonacciTable.add((long) 0);
-        fibonacciTable.add((long) 1);
-        for (int k = 0; k == seriesElement; k++) { //pozostałą część tablicy wypełniam zerami
-            fibonacciTable.add((long) 0);
-            System.out.println("k = " + fibonacciTable.get(k));
-        }
+        fibonacciTable.add(0L); // deklaruje, że ta liczba jest longiem
+        fibonacciTable.add(1L);
 
+        for (int x = 2; x < seriesElement; x++) {
+            fibonacciTable.add(0L);
+        }
 
         if (seriesElement <= 1) {
             el = fibonacciTable.get(seriesElement - 1); //pobieramy z tablicy
 
         } else {
-//            if (fibonacciTable.get(seriesElement - 1) == 0) {
-//                el = (calcFibonacci(seriesElement - 1) + calcFibonacci(seriesElement - 2));
-//                fibonacciTable.set(seriesElement - 1, el);
-//            } else {
-//                el = fibonacciTable.get(seriesElement - 1);
-//            }
-el = 5;
-System.out.println("fibonacciTable.get(seriesElement - 1)" + fibonacciTable.get(seriesElement - 1));
+            if (fibonacciTable.get(seriesElement - 1) == 0) {
+                el = (calcFibonacci(seriesElement - 1) + calcFibonacci(seriesElement - 2));
+                fibonacciTable.set(seriesElement - 1, el);
+            } else {
+                el = fibonacciTable.get(seriesElement - 1);
+            }
         }
         return el;
     }
 //--------------------------------------------------------------------------------
-//
-//    public void viewElement(int i) {
-//
-//        long element = fibonacciTable.get(i - 1);
-//        System.out.println(i + " element ciągu Fibonacciego to: " + element);
-//    }
+
+    public void viewElement(int i) {
+
+        long element = fibonacciTable.get(i - 1);
+        System.out.println(i + " element ciągu Fibonacciego to: " + element);
+        System.out.println("fibonacciTable.size " + fibonacciTable.size());
+    }
 //--------------------------------------------------------------------------------
 }
