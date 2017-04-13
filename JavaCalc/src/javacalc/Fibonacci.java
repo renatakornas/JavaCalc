@@ -5,7 +5,8 @@
  */
 package javacalc;
 
-import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.HashMap;
 
 /**
  *
@@ -26,44 +27,42 @@ import java.util.ArrayList;
 //    }
 ////--------------------------------------------------------------------------------
 //    public void run() {
-//
 //        calcFibonacci(seriesElement);
 //    }
 ////--------------------------------------------------------------------------------
 public class Fibonacci {
 
-    public int seriesElement; // element ciągu
-    ArrayList<Long> fibonacciTable = new ArrayList<Long>(); // tablica elementów ciągu fibonacciego
+    private int seriesElement; // element ciągu
+    private long el;
+    private HashMap<Integer, Long> fibonacciTable;
 
-    public long calcFibonacci(int seriesElement) {
-        long el;
-        fibonacciTable.add(0L); // deklaruje, że ta liczba jest longiem
-        fibonacciTable.add(1L);
+    // konstruktor ustawia dwie pierwsze wartości ciągu na 0 i 1
+    public Fibonacci() {
+        this.fibonacciTable = new HashMap<>();
+        fibonacciTable.put(1, 0L);
+        fibonacciTable.put(2, 1L);
+    }
 
-        for (int x = 2; x < seriesElement; x++) {
-            fibonacciTable.add(0L);
-        }
-
-        if (seriesElement <= 1) {
-            el = fibonacciTable.get(seriesElement - 1); //pobieramy z tablicy
-
+    // metoda calcFibonacci(n) uzupełnia tablicę elementami ciągu od 1 do n
+    private long calcFibonacci(int strainElement) {
+        if (fibonacciTable.size() >= strainElement) {
+            el = fibonacciTable.get(strainElement);
         } else {
-            if (fibonacciTable.get(seriesElement - 1) == 0) {
-                el = (calcFibonacci(seriesElement - 1) + calcFibonacci(seriesElement - 2));
-                fibonacciTable.set(seriesElement - 1, el);
-            } else {
-                el = fibonacciTable.get(seriesElement - 1);
-            }
+            el = (calcFibonacci(strainElement - 1) + calcFibonacci(strainElement - 2));
+            fibonacciTable.put(strainElement, el);
         }
         return el;
     }
-//--------------------------------------------------------------------------------
 
-    public void viewElement(int i) {
-
-        long element = fibonacciTable.get(i - 1);
-        System.out.println(i + " element ciągu Fibonacciego to: " + element);
-        System.out.println("fibonacciTable.size " + fibonacciTable.size());
+    // metoda zwracająca wartość i-tego elementu ciągu
+    public long getFibonacciStrainElement(int i) {
+        long element = calcFibonacci(i);
+        return element;
     }
-//--------------------------------------------------------------------------------
+    
+    // metoda zwracająca Hashmapę wszystkich elementów ciągu
+    public HashMap getAllFibonacciStrainElements(int i) {
+        calcFibonacci(i);
+        return fibonacciTable;
+    }
 }

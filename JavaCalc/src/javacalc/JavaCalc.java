@@ -5,6 +5,8 @@
  */
 package javacalc;
 
+import java.util.HashMap;
+
 /**
  *
  * @author R
@@ -15,14 +17,14 @@ public class JavaCalc {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int i = 80;
+        int i = 90;
         Fibonacci fib = new Fibonacci();
-        long elementFib = fib.calcFibonacci(i);
+        long el = fib.getFibonacciStrainElement(i);
+        System.out.println(i + " wyraz ciągu Fibonacciego to: " + el +"\n");
 
- 
-        fib.viewElement(i);
-
-        fib.viewElement(50);
+        HashMap fibAll = fib.getAllFibonacciStrainElements(i);
+        for (int j = 1; j <= fibAll.size(); j++) {
+            System.out.println(j + " element ciągi Fibonacciego to: " + fibAll.get(j));
+        }
     }
-
 }
