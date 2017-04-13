@@ -5,43 +5,67 @@
  */
 package javacalc;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author R
  */
-public class Fibonacci implements Runnable {
-
-    public long seriesElement;
-        private Thread runner;
-
-//    public Fibonacci(long i) {
-//        this.calcFibonacci(i);
+// FRAGMENT DO WATKOW
+//    public class Fibonacci implements Runnable {
+//    public int seriesElement; // element ciągu
+//    private Thread runner;    // wątek
+//    ArrayList<Long> fibonacciTable = new ArrayList<Long>(); // tablica elementów ciągu fibonacciego
+////--------------------------------------------------------------------------------
+//    Fibonacci(int i) { //otwieramy wątek dla obliczeń (dla potestowania, nie jest to tutaj potrzebne)
+//        seriesElement = i;
+//        if (runner == null) {
+//            runner = new Thread(this);
+//            runner.start();
+//        }
 //    }
+////--------------------------------------------------------------------------------
+//    public void run() {
+//
+//        calcFibonacci(seriesElement);
+//    }
+////--------------------------------------------------------------------------------
+public class Fibonacci {
 
-    Fibonacci(long i) {
-        seriesElement = i;
-        if (runner == null) {
-            runner = new Thread(this);
-            runner.start();
+    public int seriesElement; // element ciągu
+    ArrayList<Long> fibonacciTable = new ArrayList<Long>(); // tablica elementów ciągu fibonacciego
+
+    public long calcFibonacci(int seriesElement) {
+        long el;
+        fibonacciTable.add((long) 0);
+        fibonacciTable.add((long) 1);
+        for (int k = 0; k == seriesElement; k++) { //pozostałą część tablicy wypełniam zerami
+            fibonacciTable.add((long) 0);
+            System.out.println("k = " + fibonacciTable.get(k));
         }
-    }
 
-    public void run() {
-        
-        calcFibonacci(seriesElement);
-    }
 
-    public long calcFibonacci(long i) {
-        if (i <= 1) {
-            return i;
+        if (seriesElement <= 1) {
+            el = fibonacciTable.get(seriesElement - 1); //pobieramy z tablicy
+
         } else {
-            return (calcFibonacci(i - 1) + calcFibonacci(i - 2));
+//            if (fibonacciTable.get(seriesElement - 1) == 0) {
+//                el = (calcFibonacci(seriesElement - 1) + calcFibonacci(seriesElement - 2));
+//                fibonacciTable.set(seriesElement - 1, el);
+//            } else {
+//                el = fibonacciTable.get(seriesElement - 1);
+//            }
+el = 5;
+System.out.println("fibonacciTable.get(seriesElement - 1)" + fibonacciTable.get(seriesElement - 1));
         }
+        return el;
     }
-
-    public void viewElement(long i) {
-
-        long element = this.calcFibonacci(i);
-        System.out.println(i + " element ciągu Fibonacciego to: " + element);
-    }
+//--------------------------------------------------------------------------------
+//
+//    public void viewElement(int i) {
+//
+//        long element = fibonacciTable.get(i - 1);
+//        System.out.println(i + " element ciągu Fibonacciego to: " + element);
+//    }
+//--------------------------------------------------------------------------------
 }
