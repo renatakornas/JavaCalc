@@ -11,29 +11,11 @@ import java.util.HashMap;
  *
  * @author R
  */
-// FRAGMENT DO WATKOW
-//    public class Fibonacci implements Runnable {
-//    public int seriesElement; // element ciągu
-//    private Thread runner;    // wątek
-//    ArrayList<Long> fibonacciTable = new ArrayList<Long>(); // tablica elementów ciągu fibonacciego
-////--------------------------------------------------------------------------------
-//    Fibonacci(int i) { //otwieramy wątek dla obliczeń (dla potestowania, nie jest to tutaj potrzebne)
-//        seriesElement = i;
-//        if (runner == null) {
-//            runner = new Thread(this);
-//            runner.start();
-//        }
-//    }
-////--------------------------------------------------------------------------------
-//    public void run() {
-//        calcFibonacci(seriesElement);
-//    }
-////--------------------------------------------------------------------------------
 public class Fibonacci {
 
     private int seriesElement; // element ciągu
     private long el;
-    private HashMap<Integer, Long> fibonacciTable;
+    private final HashMap<Integer, Long> fibonacciTable;
 
     // konstruktor ustawia dwie pierwsze wartości ciągu na 0 i 1
     public Fibonacci() {
