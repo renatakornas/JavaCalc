@@ -5,7 +5,9 @@
  */
 package javacalc;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -13,26 +15,39 @@ import java.util.Arrays;
  */
 public class Matrix {
 
-    int row;
-    int column;
-    int matrix[][];
+    private List<Row> matrix;
 
-    Matrix() {
-        this.row = 5;
-        this.column = 5;
-        this.matrix = new int[row][column];
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                matrix[i][j] = 2;
-            }
+    Matrix(int rowNum, int colNum) {
+        matrix = new ArrayList<>();
+        for (int i = 0; i < rowNum; i++) {
+            matrix.add(new Row(colNum));
         }
     }
 
-    void pokaz() {
+    Row getRow(int i) {
+        return matrix.get(i);
+    }
 
-        for (int i = 0; i < this.row; i++) {
-            System.out.println(Arrays.toString(this.matrix[i]));
+    Col getCol(int i) {
+        Col result = new Col(i);
+        for (Row row : matrix) {
+            result.get(i);
         }
+        return result;
+    }
 
+    Integer mulRowCol(List<Integer> x, List<Integer> y) {
+        Integer result = 0;
+        for (int i : x) {
+            Integer z = x.get(i) * y.get(i);
+            result = result + z;
+        }
+        return result;
+    }
+
+    void show() {
+        for (Row row : matrix) {
+            row.print();
+        }
     }
 }

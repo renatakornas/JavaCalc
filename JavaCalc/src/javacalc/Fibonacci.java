@@ -5,6 +5,7 @@
  */
 package javacalc;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 /**
@@ -14,30 +15,30 @@ import java.util.HashMap;
 public class Fibonacci {
 
     private int seriesElement; // element ciągu
-    private long el;
-    private final HashMap<Integer, Long> fibonacciTable;
+    private BigDecimal el;
+    private final HashMap<Integer, BigDecimal> fibonacciTable;
 
     // konstruktor ustawia dwie pierwsze wartości ciągu na 0 i 1
     public Fibonacci() {
         this.fibonacciTable = new HashMap<>();
-        fibonacciTable.put(1, 0L);
-        fibonacciTable.put(2, 1L);
+        fibonacciTable.put(1, BigDecimal.ZERO);
+        fibonacciTable.put(2, BigDecimal.ONE);
     }
 
     // metoda calcFibonacci(n) uzupełnia tablicę elementami ciągu od 1 do n
-    private long calcFibonacci(int strainElement) {
+    private BigDecimal calcFibonacci(int strainElement) {
         if (fibonacciTable.size() >= strainElement) {
             el = fibonacciTable.get(strainElement);
         } else {
-            el = (calcFibonacci(strainElement - 1) + calcFibonacci(strainElement - 2));
+            el = (calcFibonacci(strainElement - 1).add(calcFibonacci(strainElement - 2)));
             fibonacciTable.put(strainElement, el);
         }
         return el;
     }
 
     // metoda zwracająca wartość i-tego elementu ciągu
-    public long getFibonacciStrainElement(int i) {
-        long element = calcFibonacci(i);
+    public BigDecimal getFibonacciStrainElement(int i) {
+        BigDecimal element = calcFibonacci(i);
         return element;
     }
     
