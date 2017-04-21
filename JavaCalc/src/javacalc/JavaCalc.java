@@ -38,10 +38,11 @@ public class JavaCalc {
         
         System.out.println("\nPierwsza macierz");
         Matrix firstMatrix = new Matrix(5,2);
-        firstMatrix.show();
+        firstMatrix.printMatrix();
+        
         System.out.println("\nDruga macierz");
         Matrix secondMatrix = new Matrix(2,5);
-        secondMatrix.show();
+        secondMatrix.printMatrix();
 
         
         System.out.println("\nWynik mnożenia");

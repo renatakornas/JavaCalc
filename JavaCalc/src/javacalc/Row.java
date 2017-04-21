@@ -26,13 +26,12 @@ class Row {
         return data.get(i);
     }
 
-    public String print() {
-        String dataStr = "[";
-        for (int i = 0; i <= this.data.size(); i++) {
-            dataStr = dataStr + " " + data.get(i);
+    public void printRow() {
+        String rowStr = "[";
+        for (int i = 0; i < this.data.size(); i++) {
+            rowStr = rowStr + " " + this.get(i);
         }
-        System.out.println(dataStr);
-        return dataStr;
+        rowStr = rowStr + " ]";
+        System.out.println(rowStr);
     }
-
 }

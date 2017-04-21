@@ -6,7 +6,6 @@
 package javacalc;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -45,9 +44,9 @@ public class Matrix {
         return result;
     }
 
-    void show() {
-        for (Row row : matrix) {
-            row.print();
+    void printMatrix() {
+        for (int i = 0; i < this.matrix.size(); i++) {
+            this.getRow(i).printRow();
         }
     }
 }
