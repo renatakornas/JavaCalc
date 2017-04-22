@@ -6,6 +6,7 @@
 package javacalc;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -33,19 +34,24 @@ public class JavaCalc {
             System.out.println(j + " element ciągi Fibonacciego to: " + fibAll.get(j));
         }
 
-        //////////////////////////////////////////////
-        System.out.println("\n\n\n Mnożenie macierzy");
-        
+        //////////////////////////////////////////////////////////////////////////////////////
+        System.out.println("\n\n\n Mnożenie macierzy - mnożenie Cauchy'ego - zdefiniowane wyłącznie dla macierzy, z których pierwsza ma tyle kolumn, co druga wierszy");
+//        Matrix firstMatrix = new Matrix(5, 2);
+//        Matrix secondMatrix = new Matrix(2, 5);
+
         System.out.println("\nPierwsza macierz");
-        Matrix firstMatrix = new Matrix(5,2);
+        Integer[][] mat = {{1, 5}, {2, 4}, {1, 3}, {1, 1}};
+        Matrix firstMatrix = new Matrix(mat);
         firstMatrix.printMatrix();
-        
         System.out.println("\nDruga macierz");
-        Matrix secondMatrix = new Matrix(2,5);
+        Integer[][] mat1 = {{3, 6, 1}, {1, 4, 2}};
+        Matrix secondMatrix = new Matrix(mat1);
         secondMatrix.printMatrix();
 
-        
         System.out.println("\nWynik mnożenia");
-//        resultMatrix.show();
+
+        Matrix resultMatrix = firstMatrix.mulMatrix(firstMatrix, secondMatrix);
+
+        resultMatrix.printMatrix();
     }
 }
