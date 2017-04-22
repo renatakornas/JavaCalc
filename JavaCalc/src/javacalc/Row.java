@@ -6,15 +6,14 @@
 package javacalc;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  *
  * @author rkornas
  */
-class Row {
-
-    private List<Integer> data = new ArrayList<>();
+class Row extends Vector {
 
     Row(int el) {
         for (int i = 0; i < el; i++) {
@@ -22,16 +21,10 @@ class Row {
         }
     }
 
-    Integer get(int i) {
-        return data.get(i);
+    Row(Integer[] row) {
+        data.addAll(Arrays.asList(row));
+//        for (Integer rowElement : row) {
+//            data.add(rowElement);
     }
 
-    public void printRow() {
-        String rowStr = "[";
-        for (int i = 0; i < this.data.size(); i++) {
-            rowStr = rowStr + " " + this.get(i);
-        }
-        rowStr = rowStr + " ]";
-        System.out.println(rowStr);
-    }
 }

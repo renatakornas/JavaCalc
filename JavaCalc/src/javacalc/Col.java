@@ -12,16 +12,11 @@ import java.util.List;
  *
  * @author rkornas
  */
-class Col {
-        private List<Integer> data = new ArrayList<>();
+class Col extends Vector {
 
     Col(int el) {
         for (int i = 0; i < el; i++) {
             data.add(2);
         }
-    }
-    
-    Integer get(int i){
-        return data.get(i);   
     }
 }
