@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javacalc;
+package javacalc.matrix;
 
+import javacalc.matrix.vector.Col;
+import javacalc.matrix.vector.Row;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +18,14 @@ public class Matrix {
 
     private List<Row> matrix;
 
-    Matrix(int rowNum, int colNum) {
+    public Matrix(int rowNum, int colNum) {
         matrix = new ArrayList<>();
         for (int i = 0; i < rowNum; i++) {
             matrix.add(new Row(colNum));
         }
     }
 
-    Matrix(Integer[][] rows) {
+    public Matrix(Integer[][] rows) {
         matrix = new ArrayList<>();
         for (Integer[] row : rows) {
             matrix.add(new Row(row));
@@ -59,24 +61,7 @@ public class Matrix {
         return result;
     }
 
-    public Matrix mulMatrix(Matrix mat1, Matrix mat2) {
-        Matrix resultMatrix = new Matrix(mat1.getRowNumber(), mat2.getColNumber());
-        Integer el = 0;
-        Integer[][] rows = new Integer[mat1.getRowNumber()][mat2.getColNumber()];
-        for (int i = 0; i < mat1.getRowNumber(); i++) {
-            Row row = mat1.getRow(i);
-            for (int j = 0; j < mat2.getColNumber(); j++) {
-                Col col = mat2.getCol(j);
-                el = resultMatrix.mulRowCol(row, col);
-                rows[i][j] = el;
-            }
-        }
-        resultMatrix = new Matrix(rows);
-
-        return resultMatrix;
-    }
-
-    void printMatrix() {
+    public void printMatrix() {
         for (int i = 0; i < this.matrix.size(); i++) {
             this.getRow(i).printVector();
         }

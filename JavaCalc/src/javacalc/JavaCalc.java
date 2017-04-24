@@ -5,10 +5,11 @@
  */
 package javacalc;
 
+import javacalc.fibonacci.Fibonacci;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import javacalc.matrix.Matrix;
+import javacalc.matrix.MatrixCalc;
 
 /**
  *
@@ -50,7 +51,7 @@ public class JavaCalc {
 
         System.out.println("\nWynik mnożenia");
 
-        Matrix resultMatrix = firstMatrix.mulMatrix(firstMatrix, secondMatrix);
+        Matrix resultMatrix = MatrixCalc.mulMatrix(firstMatrix, secondMatrix);
 
         resultMatrix.printMatrix();
     }

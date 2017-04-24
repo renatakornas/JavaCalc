@@ -3,18 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javacalc;
-
-import java.util.ArrayList;
-import java.util.List;
+package javacalc.matrix.vector;
 
 /**
  *
  * @author rkornas
  */
-class Col extends Vector {
+public class Col extends Vector {
 
-    Col(int el) {
+    public Col(int el) {
         for (int i = 0; i < el; i++) {
             data.add(2);
         }
